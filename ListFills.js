@@ -2,13 +2,13 @@ import { getSignature } from './utils/generateSignature.js';
 import fetch from 'node-fetch';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + `/orders/historical/batch?limit=11`;
+const url = baseURL + `/orders/historical/fills?limit=11`;
 
-async function listOrders() {
+async function listFills() {
   try {
     const signature = await getSignature(
       'GET',
-      '/api/v3/brokerage/orders/historical/batch',
+      '/api/v3/brokerage/orders/historical/fills',
       ''
     );
 
@@ -30,4 +30,4 @@ async function listOrders() {
   }
 }
 
-listOrders();
+listFills();
