@@ -24,6 +24,7 @@ async function listAccounts() {
       },
     });
     const data = await response.json();
+    console.log(data);
   } catch (error) {
     console.log('this is the error', error);
   }
