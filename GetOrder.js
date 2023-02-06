@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 
 const baseURL = process.env.BASE_URL;
 const order_id = process.env.ORDER_ID;
-console.log(order_id);
 const url = baseURL + `/orders/historical/${order_id}`;
 
 async function OrderById() {
