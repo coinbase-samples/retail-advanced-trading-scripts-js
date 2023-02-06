@@ -1,0 +1,18 @@
+{
+  "name": "rat-scripts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Retail Advanced Trading Scripts",
+  "main": "ListAccounts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-es": "^1.2.7",
+    "dotenv": "^16.0.3",
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.3.0"
+  }
+}
