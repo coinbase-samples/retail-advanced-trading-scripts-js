@@ -6,7 +6,7 @@ const url = baseURL + '/orders/';
 
 const body = {
   client_order_id: '12122',
-  product_id: 'BTC_USD',
+  product_id: 'BTC-USD',
   side: 'BUY',
   order_configuration: {
     market_market_ioc: {
@@ -15,18 +15,20 @@ const body = {
   },
 };
 
+let payload = JSON.stringify(body);
+
 async function CreateOrder() {
   try {
     const signature = await getSignature(
       'POST',
       '/api/v3/brokerage/orders/',
-      body
+      payload
     );
 
     const response = await fetch(url, {
       method: 'POST',
       mode: 'cors',
-      body: JSON.stringify(body),
+      body: payload,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -35,7 +37,7 @@ async function CreateOrder() {
         'CB-ACCESS-SIGN': signature.authResponse.signature,
       },
     });
-    const data = await response;
+    const data = await response.json();
     console.log(data);
   } catch (error) {
     console.log('this is the error', error);
