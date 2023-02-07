@@ -1,5 +1,4 @@
 import { getSignature } from './utils/generateSignature.js';
-import fetch from 'node-fetch';
 
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
