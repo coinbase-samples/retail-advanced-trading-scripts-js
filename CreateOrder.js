@@ -1,5 +1,4 @@
 import { getSignature } from './utils/generateSignature.js';
-import fetch from 'node-fetch';
 
 const baseURL = process.env.BASE_URL;
 const url = baseURL + '/orders/';
