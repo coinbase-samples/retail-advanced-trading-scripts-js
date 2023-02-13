@@ -1,4 +1,4 @@
-import { getSignature } from './utils/generateSignature.js';
+import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const order_id = process.env.ORDER1_ID;
