@@ -2,7 +2,7 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const account_uuid = process.env.ACCOUNT_UUID;
-const url = baseURL + `/accounts/${account_uuid}`;
+const url = `${baseURL}/accounts/${account_uuid}`;
 
 async function listAccounts() {
   try {

@@ -1,7 +1,7 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + `/orders/historical/fills?limit=11`;
+const url = `${baseURL}/orders/historical/fills?limit=11`;
 
 async function listFills() {
   try {

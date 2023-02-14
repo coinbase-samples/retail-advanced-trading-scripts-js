@@ -4,7 +4,7 @@ const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
 
 console.log(product_id);
-const url = baseURL + `/products/${product_id}/ticker`;
+const url = `${baseURL}/products/${product_id}/ticker`;
 
 async function getMarketTrades() {
   try {

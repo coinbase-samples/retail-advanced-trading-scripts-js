@@ -1,7 +1,7 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + `/accounts`;
+const url = `${baseURL}/accounts`;
 
 async function listAccounts() {
   try {
