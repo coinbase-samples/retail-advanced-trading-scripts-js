@@ -1,9 +1,9 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const order_id = process.env.ORDER1_ID;
+const order_id = process.env.ORDER_ID;
 
-const url = baseURL + `/orders/historical/${order_id}`;
+const url = `${baseURL}/orders/historical/${order_id}`;
 
 async function getOrder() {
   try {
