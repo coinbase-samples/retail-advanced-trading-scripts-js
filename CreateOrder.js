@@ -1,7 +1,7 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + '/orders/';
+const url = baseURL + '/orders';
 
 const body = {
   client_order_id: '12122',
@@ -15,22 +15,23 @@ const body = {
 };
 
 let payload = JSON.stringify(body);
-
+const method = 'POST';
+const contentType = 'application/json';
 async function CreateOrder() {
   try {
     const signature = await getSignature(
-      'POST',
-      '/api/v3/brokerage/orders/',
+      method,
+      '/api/v3/brokerage/orders',
       payload
     );
 
     const response = await fetch(url, {
-      method: 'POST',
+      method: method,
       mode: 'cors',
       body: payload,
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: contentType,
+        'Content-Type': contentType,
         'CB-ACCESS-KEY': signature.authResponse.API_KEY,
         'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
         'CB-ACCESS-SIGN': signature.authResponse.signature,

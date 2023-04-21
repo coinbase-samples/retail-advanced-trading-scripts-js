@@ -2,21 +2,23 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const url = `${baseURL}/orders/historical/batch?limit=11`;
+const method = 'GET';
+const contentType = 'application/json';
 
 async function listOrders() {
   try {
     const signature = await getSignature(
-      'GET',
+      method,
       '/api/v3/brokerage/orders/historical/batch',
       ''
     );
 
     const response = await fetch(url, {
-      method: 'GET',
+      method: method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': contentType,
         'CB-ACCESS-KEY': signature.authResponse.API_KEY,
         'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
         'CB-ACCESS-SIGN': signature.authResponse.signature,

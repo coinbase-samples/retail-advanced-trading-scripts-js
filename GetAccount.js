@@ -3,21 +3,23 @@ import { getSignature } from './generateSignature.js';
 const baseURL = process.env.BASE_URL;
 const account_uuid = process.env.ACCOUNT_UUID;
 const url = `${baseURL}/accounts/${account_uuid}`;
+const method = method;
+const contentType = 'application/json';
 
 async function listAccounts() {
   try {
     const signature = await getSignature(
-      'GET',
+      method,
       `/api/v3/brokerage/accounts/${account_uuid}`,
       ''
     );
 
     const response = await fetch(url, {
-      method: 'GET',
+      method: method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': contentType,
         'CB-ACCESS-KEY': signature.authResponse.API_KEY,
         'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
         'CB-ACCESS-SIGN': signature.authResponse.signature,

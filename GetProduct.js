@@ -2,6 +2,8 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
+const method = 'GET';
+const contentType = 'application/json';
 
 console.log(product_id);
 const url = `${baseURL}/products/${product_id}`;
@@ -9,17 +11,17 @@ const url = `${baseURL}/products/${product_id}`;
 async function getProductById() {
   try {
     const signature = await getSignature(
-      'GET',
+      method,
       `/api/v3/brokerage/products/${product_id}`,
       ''
     );
 
     const response = await fetch(url, {
-      method: 'GET',
+      method: method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': contentType,
         'CB-ACCESS-KEY': signature.authResponse.API_KEY,
         'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
         'CB-ACCESS-SIGN': signature.authResponse.signature,
