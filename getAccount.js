@@ -3,7 +3,7 @@ import { getSignature } from './generateSignature.js';
 const baseURL = process.env.BASE_URL;
 const account_uuid = process.env.ACCOUNT_UUID;
 const url = `${baseURL}/accounts/${account_uuid}`;
-const method = method;
+const method = 'GET';
 const contentType = 'application/json';
 
 async function listAccounts() {
