@@ -1,7 +1,7 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + '/products?limit=11';
+const url = `${baseURL}/products?limit=11`;
 const method = 'GET';
 const contentType = 'application/json';
 

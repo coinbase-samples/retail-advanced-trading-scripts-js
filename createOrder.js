@@ -1,11 +1,12 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const url = baseURL + '/orders';
+const url = `${baseURL}/orders`;
+const client_order_id = Math.random().toString();
 
 const body = {
-  client_order_id: '',
-  product_id: 'BTC-USD',
+  client_order_id,
+  product_id: 'DOGE-USD',
   side: 'BUY',
   order_configuration: {
     market_market_ioc: {
