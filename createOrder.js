@@ -4,7 +4,7 @@ const baseURL = process.env.BASE_URL;
 const url = baseURL + '/orders';
 
 const body = {
-  client_order_id: '12122',
+  client_order_id: '',
   product_id: 'BTC-USD',
   side: 'BUY',
   order_configuration: {
