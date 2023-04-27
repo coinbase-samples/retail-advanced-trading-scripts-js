@@ -2,7 +2,7 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
-const method = method;
+const method = 'GET';
 const contentType = 'application/json';
 
 console.log(product_id);
