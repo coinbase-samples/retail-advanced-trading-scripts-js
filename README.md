@@ -30,7 +30,7 @@ PRODUCT_ID=BTC-USD
 
 ### Step 2
 
-execute an API call (make sure to use Node 18+ ie: nvm use 18.14.0 or nvm use 18)
+execute an API call (make sure to use Node 18+ i.e., nvm use 18.14.0 or nvm use 18)
 
 ```bash
 node listAccounts.js
