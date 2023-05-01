@@ -27,7 +27,11 @@ function buildPayload(ts, method, requestPath, body) {
   return `${ts}${method}${requestPath}${body}`;
 }
 
-export const getSignature = async (method, requestPath, body) => {
+export const getSignature = async (
+  method = 'GET',
+  requestPath = '/',
+  body = ''
+) => {
   const timestamp = Math.floor(Date.now() / 1000);
   const API_KEY = process.env.API_KEY;
   const API_SECRET = process.env.API_SECRET;
