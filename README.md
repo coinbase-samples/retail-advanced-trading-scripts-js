@@ -17,7 +17,7 @@ git clone https://github.com/coinbase-samples/retail-advanced-trading-scripts-js
 Executing a call:
 
 ### Step 1
-Configure env
+Add and configure .env file like below:
 
 ```bash
 API_KEY={{Your API key}}
