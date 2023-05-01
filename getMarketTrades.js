@@ -21,7 +21,6 @@ const product_id = process.env.PRODUCT_ID;
 const method = 'GET';
 const contentType = 'application/json';
 
-console.log(product_id);
 const url = `${baseURL}/products/${product_id}/ticker`;
 
 async function getMarketTrades() {
