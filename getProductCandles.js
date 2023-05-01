@@ -15,14 +15,16 @@
  */
 
 import { getSignature } from './generateSignature.js';
+import { getStartDate, getEndDate } from './utils/dates.js';
 
+console.log(getStartDate(7));
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
 const method = 'GET';
 const contentType = 'application/json';
-const start = '1609459200';
-const end = '1609545600';
-const granularity = 'FIVE_MINUTE';
+const start = getStartDate(3);
+const end = getEndDate(6);
+const granularity = 'ONE_HOUR';
 
 const url = `${baseURL}/products/${product_id}/candles?start=${start}&end=${end}&granularity=${granularity}`;
 
