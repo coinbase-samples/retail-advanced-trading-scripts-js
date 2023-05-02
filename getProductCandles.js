@@ -17,7 +17,6 @@
 import { getSignature } from './generateSignature.js';
 import { getStartDate, getEndDate } from './utils/dates.js';
 
-console.log(getStartDate(7));
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
 const contentType = 'application/json';

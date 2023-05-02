@@ -16,23 +16,14 @@
 
 import { getSignature } from './generateSignature.js';
 
-const baseURL = process.env.BASE_URL;
+const base_url = process.env.BASE_URL;
 const product_type = 'SPOT';
 const contentType = 'application/json';
 const start_date = '2021-01-01T00:00:00.000Z';
 const end_date = '2021-04-01T00:00:00.000Z';
 const user_native_currency = 'USD';
 
-const url =
-  baseURL +
-  '/transaction_summary?start_date=' +
-  start_date +
-  '&end_date=' +
-  end_date +
-  '&user_native_currency=' +
-  user_native_currency +
-  '&product_type=' +
-  product_type;
+const url = `${base_url}/transaction_summary?start_date=${start_date}&end_date=${end_date}&user_native_currency=${user_native_currency}&product_type=${product_type}`;
 
 async function getTransactionSummary() {
   try {
