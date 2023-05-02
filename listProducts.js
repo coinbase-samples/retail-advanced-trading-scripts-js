@@ -23,11 +23,7 @@ const contentType = 'application/json';
 
 async function listProducts() {
   try {
-    const signature = await getSignature(
-      method,
-      '/api/v3/brokerage/products',
-      ''
-    );
+    const signature = await getSignature(method, '/api/v3/brokerage/products');
 
     const response = await fetch(url, {
       method: method,

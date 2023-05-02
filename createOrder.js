@@ -16,13 +16,13 @@
 
 import { getSignature } from './generateSignature.js';
 
-const baseURL = process.env.BASE_URL;
-const url = `${baseURL}/orders`;
+const { BASE_URL, PRODUCT_ID } = process.env;
+const url = `${BASE_URL}/orders`;
 const client_order_id = Math.random().toString();
 
 const body = {
   client_order_id,
-  product_id: 'DOGE-USD',
+  product_id: PRODUCT_ID,
   side: 'BUY',
   order_configuration: {
     market_market_ioc: {
@@ -43,7 +43,7 @@ async function CreateOrder() {
     );
 
     const response = await fetch(url, {
-      method: method,
+      method,
       mode: 'cors',
       body: payload,
       headers: {

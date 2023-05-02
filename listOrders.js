@@ -25,8 +25,7 @@ async function listOrders() {
   try {
     const signature = await getSignature(
       method,
-      '/api/v3/brokerage/orders/historical/batch',
-      ''
+      '/api/v3/brokerage/orders/historical/batch'
     );
 
     const response = await fetch(url, {
