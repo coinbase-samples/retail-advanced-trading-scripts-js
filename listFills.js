@@ -18,19 +18,15 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const url = `${baseURL}/orders/historical/fills?limit=11`;
-const method = 'GET';
 const contentType = 'application/json';
 
 async function listFills() {
   try {
     const signature = await getSignature(
-      method,
-      '/api/v3/brokerage/orders/historical/fills',
-      ''
+      '/api/v3/brokerage/orders/historical/fills'
     );
 
     const response = await fetch(url, {
-      method: method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',

@@ -25,13 +25,10 @@ const url = `${baseURL}/orders/historical/${order_id}`;
 async function getOrder() {
   try {
     const signature = await getSignature(
-      method,
-      `/api/v3/brokerage/orders/historical/${order_id}`,
-      ''
+      `/api/v3/brokerage/orders/historical/${order_id}`
     );
 
     const response = await fetch(url, {
-      method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',

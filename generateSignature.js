@@ -28,8 +28,8 @@ function buildPayload(ts, method, requestPath, body) {
 }
 
 export const getSignature = async (
-  method = 'GET',
   requestPath = '/',
+  method = 'GET',
   body = ''
 ) => {
   const timestamp = Math.floor(Date.now() / 1000);

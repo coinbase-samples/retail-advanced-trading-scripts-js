@@ -18,19 +18,13 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const url = `${baseURL}/accounts`;
-const method = 'GET';
 const contentType = 'application/json';
 
 async function listAccounts() {
   try {
-    const signature = await getSignature(
-      method,
-      '/api/v3/brokerage/accounts',
-      ''
-    );
+    const signature = await getSignature('/api/v3/brokerage/accounts');
 
     const response = await fetch(url, {
-      method: method,
       mode: 'cors',
       headers: {
         Accept: contentType,

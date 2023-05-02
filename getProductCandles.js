@@ -20,7 +20,6 @@ import { getStartDate, getEndDate } from './utils/dates.js';
 console.log(getStartDate(7));
 const baseURL = process.env.BASE_URL;
 const product_id = process.env.PRODUCT_ID;
-const method = 'GET';
 const contentType = 'application/json';
 const start = getStartDate(3);
 const end = getEndDate(6);
@@ -31,13 +30,10 @@ const url = `${baseURL}/products/${product_id}/candles?start=${start}&end=${end}
 async function getProductCandles() {
   try {
     const signature = await getSignature(
-      method,
-      `/api/v3/brokerage/products/${product_id}/candles`,
-      ''
+      `/api/v3/brokerage/products/${product_id}/candles`
     );
 
     const response = await fetch(url, {
-      method: method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',

@@ -18,7 +18,6 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const product_type = 'SPOT';
-const method = 'GET';
 const contentType = 'application/json';
 const start_date = '2021-01-01T00:00:00.000Z';
 const end_date = '2021-04-01T00:00:00.000Z';
@@ -35,16 +34,13 @@ const url =
   '&product_type=' +
   product_type;
 
-async function getProductCandles() {
+async function getTransactionSummary() {
   try {
     const signature = await getSignature(
-      method,
-      '/api/v3/brokerage/transaction_summary',
-      ''
+      '/api/v3/brokerage/transaction_summary'
     );
 
     const response = await fetch(url, {
-      method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',
@@ -61,4 +57,4 @@ async function getProductCandles() {
   }
 }
 
-getProductCandles();
+getTransactionSummary();

@@ -37,8 +37,8 @@ const contentType = 'application/json';
 async function CreateOrder() {
   try {
     const signature = await getSignature(
-      method,
       '/api/v3/brokerage/orders',
+      method,
       payload
     );
 
