@@ -16,14 +16,14 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const account_uuid = process.env.ACCOUNT_UUID;
-const url = `${baseURL}/accounts/${account_uuid}`;
+const accountUuid = process.env.ACCOUNT_UUID;
+const url = `${baseURL}/accounts/${accountUuid}`;
 const contentType = 'application/json';
 
 async function listAccounts() {
   try {
     const signature = await getSignature(
-      `/api/v3/brokerage/accounts/${account_uuid}`
+      `/api/v3/brokerage/accounts/${accountUuid}`
     );
 
     const response = await fetch(url, {

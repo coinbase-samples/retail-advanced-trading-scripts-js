@@ -16,16 +16,16 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const order_id = process.env.ORDER_ID;
+const orderId = process.env.ORDER_ID;
 const method = 'GET';
 const contentType = 'application/json';
 
-const url = `${baseURL}/orders/historical/${order_id}`;
+const url = `${baseURL}/orders/historical/${orderId}`;
 
 async function getOrder() {
   try {
     const signature = await getSignature(
-      `/api/v3/brokerage/orders/historical/${order_id}`
+      `/api/v3/brokerage/orders/historical/${orderId}`
     );
 
     const response = await fetch(url, {

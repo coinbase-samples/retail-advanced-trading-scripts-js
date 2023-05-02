@@ -17,14 +17,14 @@
 import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
-const product_id = process.env.PRODUCT_ID;
+const productId = process.env.PRODUCT_ID;
 const contentType = 'application/json';
-const url = `${baseURL}/products/${product_id}`;
+const url = `${baseURL}/products/${productId}`;
 
 async function getProductById() {
   try {
     const signature = await getSignature(
-      `/api/v3/brokerage/products/${product_id}`
+      `/api/v3/brokerage/products/${productId}`
     );
 
     const response = await fetch(url, {

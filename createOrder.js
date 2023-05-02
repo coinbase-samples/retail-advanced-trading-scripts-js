@@ -18,10 +18,10 @@ import { getSignature } from './generateSignature.js';
 
 const { BASE_URL, PRODUCT_ID } = process.env;
 const url = `${BASE_URL}/orders`;
-const client_order_id = Math.random().toString();
+const clientOrderId = Math.random().toString();
 
 const body = {
-  client_order_id,
+  clientOrderId,
   product_id: PRODUCT_ID,
   side: 'BUY',
   order_configuration: {
