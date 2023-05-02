@@ -20,12 +20,16 @@ Executing a call:
 Add and configure .env file like below:
 
 ```bash
-API_KEY={{Your API key}}
-API_SECRET={{your API secret}} 
-BASE_URL=https://api.coinbase.com/api/v3/brokerage
-ACCOUNT_UUID={{Your Account UUID}}
-ORDER_ID={{any valid order Id}}
-PRODUCT_ID=BTC-USD
+export API_KEY={{Your API key}}
+export API_SECRET={{your API secret}} 
+export BASE_URL=https://api.coinbase.com/api/v3/brokerage
+export ACCOUNT_UUID={{Your Account UUID}}
+export ORDER_ID={{any valid order Id}}
+export PRODUCT_ID=BTC-USD
+```
+
+```
+source .env
 ```
 
 ### Step 2
