@@ -19,7 +19,6 @@ import { getStartDate, getEndDate } from './utils/dates.js';
 
 const baseURL = process.env.BASE_URL;
 const productId = process.env.PRODUCT_ID;
-const contentType = 'application/json';
 const start = getStartDate(3);
 const end = getEndDate(6);
 const granularity = 'ONE_HOUR';
@@ -28,19 +27,13 @@ const url = `${baseURL}/products/${productId}/candles?start=${start}&end=${end}&
 
 async function getProductCandles() {
   try {
-    const signature = await getSignature(
+    const headers = await getSignature(
       `/api/v3/brokerage/products/${productId}/candles`
     );
 
     const response = await fetch(url, {
       mode: 'cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': contentType,
-        'CB-ACCESS-KEY': signature.authResponse.API_KEY,
-        'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
-        'CB-ACCESS-SIGN': signature.authResponse.signature,
-      },
+      headers,
     });
     const data = await response.json();
     console.log(data);

@@ -43,10 +43,10 @@ export const getSignature = async (
   const signature = sign(strToSign, API_SECRET);
 
   return {
-    authResponse: {
-      signature,
-      timestamp,
-      API_KEY,
-    },
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'CB-ACCESS-KEY': API_KEY,
+    'CB-ACCESS-TIMESTAMP': timestamp,
+    'CB-ACCESS-SIGN': signature,
   };
 };

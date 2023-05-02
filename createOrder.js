@@ -33,10 +33,9 @@ const body = {
 
 let payload = JSON.stringify(body);
 const method = 'POST';
-const contentType = 'application/json';
 async function CreateOrder() {
   try {
-    const signature = await getSignature(
+    const headers = await getSignature(
       '/api/v3/brokerage/orders',
       method,
       payload
@@ -46,13 +45,7 @@ async function CreateOrder() {
       method,
       mode: 'cors',
       body: payload,
-      headers: {
-        Accept: contentType,
-        'Content-Type': contentType,
-        'CB-ACCESS-KEY': signature.authResponse.API_KEY,
-        'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
-        'CB-ACCESS-SIGN': signature.authResponse.signature,
-      },
+      headers,
     });
     const data = await response.json();
     console.log(data);

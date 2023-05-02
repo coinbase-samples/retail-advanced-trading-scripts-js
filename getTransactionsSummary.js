@@ -18,7 +18,6 @@ import { getSignature } from './generateSignature.js';
 
 const baseUrl = process.env.BASE_URL;
 const productType = 'SPOT';
-const contentType = 'application/json';
 const startDate = '2021-01-01T00:00:00.000Z';
 const endDate = '2021-04-01T00:00:00.000Z';
 const userNativeCurrency = 'USD';
@@ -27,19 +26,11 @@ const url = `${baseUrl}/transaction_summary?start_date=${startDate}&end_date=${e
 
 async function getTransactionSummary() {
   try {
-    const signature = await getSignature(
-      '/api/v3/brokerage/transaction_summary'
-    );
+    const headers = await getSignature('/api/v3/brokerage/transaction_summary');
 
     const response = await fetch(url, {
       mode: 'cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': contentType,
-        'CB-ACCESS-KEY': signature.authResponse.API_KEY,
-        'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
-        'CB-ACCESS-SIGN': signature.authResponse.signature,
-      },
+      headers,
     });
     const data = await response.json();
     console.log(data);

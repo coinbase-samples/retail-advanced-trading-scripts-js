@@ -17,26 +17,18 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const orderId = process.env.ORDER_ID;
-const method = 'GET';
-const contentType = 'application/json';
 
 const url = `${baseURL}/orders/historical/${orderId}`;
 
 async function getOrder() {
   try {
-    const signature = await getSignature(
+    const headers = await getSignature(
       `/api/v3/brokerage/orders/historical/${orderId}`
     );
 
     const response = await fetch(url, {
       mode: 'cors',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': contentType,
-        'CB-ACCESS-KEY': signature.authResponse.API_KEY,
-        'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
-        'CB-ACCESS-SIGN': signature.authResponse.signature,
-      },
+      headers,
     });
     const data = await response.json();
     console.log(data);

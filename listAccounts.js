@@ -18,21 +18,14 @@ import { getSignature } from './generateSignature.js';
 
 const baseURL = process.env.BASE_URL;
 const url = `${baseURL}/accounts`;
-const contentType = 'application/json';
 
 async function listAccounts() {
   try {
-    const signature = await getSignature('/api/v3/brokerage/accounts');
+    const headers = await getSignature('/api/v3/brokerage/accounts');
 
     const response = await fetch(url, {
       mode: 'cors',
-      headers: {
-        Accept: contentType,
-        'Content-Type': contentType,
-        'CB-ACCESS-KEY': signature.authResponse.API_KEY,
-        'CB-ACCESS-TIMESTAMP': signature.authResponse.timestamp,
-        'CB-ACCESS-SIGN': signature.authResponse.signature,
-      },
+      headers,
     });
     const data = await response.json();
     console.log(data);
