@@ -31,7 +31,7 @@ async function getOrder() {
     );
 
     const response = await fetch(url, {
-      method: method,
+      method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',

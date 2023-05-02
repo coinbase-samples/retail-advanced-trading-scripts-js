@@ -26,7 +26,7 @@ async function listProducts() {
     const signature = await getSignature(method, '/api/v3/brokerage/products');
 
     const response = await fetch(url, {
-      method: method,
+      method,
       mode: 'cors',
       headers: {
         Accept: 'application/json',
