@@ -18,18 +18,18 @@ import { getSignature } from './generateSignature.js';
 import { getStartDate, getEndDate } from './utils/dates.js';
 
 const baseURL = process.env.BASE_URL;
-const product_id = process.env.PRODUCT_ID;
+const productId = process.env.PRODUCT_ID;
 const contentType = 'application/json';
 const start = getStartDate(3);
 const end = getEndDate(6);
 const granularity = 'ONE_HOUR';
 
-const url = `${baseURL}/products/${product_id}/candles?start=${start}&end=${end}&granularity=${granularity}`;
+const url = `${baseURL}/products/${productId}/candles?start=${start}&end=${end}&granularity=${granularity}`;
 
 async function getProductCandles() {
   try {
     const signature = await getSignature(
-      `/api/v3/brokerage/products/${product_id}/candles`
+      `/api/v3/brokerage/products/${productId}/candles`
     );
 
     const response = await fetch(url, {
